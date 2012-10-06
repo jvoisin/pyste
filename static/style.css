@@ -30,6 +30,7 @@ h2 { font-size: 1.2em; }
     height: 50%;
     overflow: scroll;
     background-color: rgb(39, 40, 34);
+    text-align: left;
 }
 
 #input{
