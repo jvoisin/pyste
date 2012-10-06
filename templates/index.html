@@ -1,0 +1,28 @@
+{% extends "main.html" %}
+{%block content%}
+{%if identifier%}
+<h1>Your paste: <a href='{{url}}{{ identifier }}'>{{ url }}{{ identifier }}</a></h1>
+{%else%}
+<h1>New paste</h1>
+<form action="" method=post>
+    <p>
+        <textarea type="textarea" name='input' placeholder="Paste some stuffs" id="input" required></textarea><br/>
+
+        <label>Title :</label>
+            <input type="text" name="title" placeholder="Title"><br/>
+        
+        <label for="expiration">Expiration :</label>
+            <select name="expiration" id="expiration">
+                <option value="0">Burn after reading</option>
+                <option value="600">Ten minutes</option>
+                <option value="3600">One hour</option>
+                <option value="86400">One day</option>
+                <option value="604800">One week</option>
+                <option value="1572480000">Never</option><!-- 50 years -->
+            </select><br/>
+
+        <input type="submit" value="Send" />
+    </p>
+</form>
+{%endif%}
+{%endblock%}

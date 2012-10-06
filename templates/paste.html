@@ -1,0 +1,18 @@
+{% extends "main.html" %}
+{%block content%}
+    {%if error%}
+        <p>{{ error}}</p>
+    {%else%}
+        <h1>{{paste.title}}</h1>
+        {% if paste.id%}
+            <h2><a href='{{url}}'>{{url}}</a></h2>
+        {%endif%}
+        <div id="paste">
+            {% autoescape false %}
+            {{paste.content}}
+            {% endautoescape %}
+        </div>
+    {%endif%}
+
+
+{%endblock%}
