@@ -11,6 +11,7 @@ A dead-simple pastebin, using Flask and Pygments
 import sqlite3
 import hashlib
 import datetime
+import time
 
 from contextlib import closing
 from flask import Flask, render_template, request, g, flash, redirect, url_for
@@ -58,7 +59,7 @@ def index():
         if request.form['expiration'] == '0':
             expiration = datetime.datetime(1, 1, 1)
 
-        identifier = hashlib.sha1(request.form['input']).hexdigest()[:8]
+        identifier = hashlib.sha1(request.form['input'] + time.ctime()).hexdigest()[:8]
         paste = highlight(
                     request.form['input'],
                     guess_lexer(request.form['input']),
