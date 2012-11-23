@@ -103,4 +103,5 @@ def show_paste(identifier):
     return render_template('paste.html', paste=paste, url=request.url)
 
 if __name__ == '__main__':
+    init_db()
     app.run()
